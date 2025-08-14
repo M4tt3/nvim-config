@@ -130,10 +130,20 @@ _G.packer_plugins = {
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/matteo/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/matteo/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -149,6 +159,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["sessions.nvim"] = {
+    loaded = true,
+    path = "/home/matteo/.local/share/nvim/site/pack/packer/start/sessions.nvim",
+    url = "https://github.com/natecraddock/sessions.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -169,6 +184,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["workspaces.nvim"] = {
+    loaded = true,
+    path = "/home/matteo/.local/share/nvim/site/pack/packer/start/workspaces.nvim",
+    url = "https://github.com/natecraddock/workspaces.nvim"
   }
 }
 

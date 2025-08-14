@@ -13,3 +13,9 @@ vim.opt.softtabstop = 4      -- Spaces per Tab in insert mode
 
 -- Default yanking register to system clipboard (+)
 vim.opt.clipboard = 'unnamedplus'
+
+vim.opt.scrolloff = 8
+vim.opt.colorcolumn = "80"
+
+
+

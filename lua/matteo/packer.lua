@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
@@ -42,7 +42,10 @@ return require('packer').startup(function(use)
     use ('mbbill/undotree')
     use ('tpope/vim-fugitive')
     use ('brenton-leighton/multiple-cursors.nvim')
-
+    use ('nvim-tree/nvim-tree.lua')
+    use ('nvim-tree/nvim-web-devicons')
+    use ('natecraddock/workspaces.nvim')
+    use ('natecraddock/sessions.nvim')
 
     --nvim cmp setup
     use('neovim/nvim-lspconfig')
