@@ -13,31 +13,34 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 ~/.config/nvim
-badd +1 NvimTree_1
-badd +1 init.lua
 badd +1 lua/matteo/packer.lua
+badd +98 after/plugin/workspaces.lua
+badd +1 ~/.config/nvim
+badd +8 after/plugin/telescope.lua
+badd +1 init.lua
+badd +1 vimrc.vim
+badd +1 .session.vim
 argglobal
 %argdel
 $argadd ~/.config/nvim
-edit NvimTree_1
+edit after/plugin/telescope.lua
 argglobal
-balt init.lua
+balt lua/matteo/packer.lua
 setlocal foldmethod=manual
-setlocal foldexpr=0
+setlocal foldexpr=v:lua.vim.treesitter.foldexpr()
 setlocal foldmarker={{{,}}}
 setlocal foldignore=#
 setlocal foldlevel=0
 setlocal foldminlines=1
 setlocal foldnestmax=20
-setlocal nofoldenable
+setlocal foldenable
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 36) / 73)
+let s:l = 8 - ((7 * winheight(0) + 36) / 73)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
+keepjumps 8
 normal! 0
 lcd ~/.config/nvim
 tabnext 1
@@ -53,7 +56,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 doautoall SessionLoadPost
 unlet SessionLoad
 " vim: set ft=vim :

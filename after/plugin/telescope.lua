@@ -6,6 +6,19 @@ vim.keymap.set('n', '<leader>ps', function()
 end)
 
 require("telescope").setup{
+    defaults = {
+        vimgrep_arguments = {
+            "rg",
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+            "--smart-case",
+            "--hidden",
+            "--no-ignore-vcs",  -- <--- makes rg ignore .gitignore
+        }
+    },
     pickers = {
         find_files = {
             find_command = {
@@ -19,6 +32,14 @@ require("telescope").setup{
                 "!**/node_modules/*",
                 "-g", "!**/.repro/*", -- just to hide .repro rtp
             }
+        }
+    },
+    extensions = {
+        workspaces = {
+            -- keep insert mode after selection in the picker, default is false
+            keep_insert = true,
+            -- Highlight group used for the path in the picker, default is "String"
+            path_hl = "String"
         }
     }
 }

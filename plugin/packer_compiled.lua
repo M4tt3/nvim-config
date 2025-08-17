@@ -160,11 +160,6 @@ _G.packer_plugins = {
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["sessions.nvim"] = {
-    loaded = true,
-    path = "/home/matteo/.local/share/nvim/site/pack/packer/start/sessions.nvim",
-    url = "https://github.com/natecraddock/sessions.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/matteo/.local/share/nvim/site/pack/packer/start/telescope.nvim",

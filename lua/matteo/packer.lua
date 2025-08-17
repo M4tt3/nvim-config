@@ -45,7 +45,6 @@ return require('packer').startup(function(use)
     use ('nvim-tree/nvim-tree.lua')
     use ('nvim-tree/nvim-web-devicons')
     use ('natecraddock/workspaces.nvim')
-    use ('natecraddock/sessions.nvim')
 
     --nvim cmp setup
     use('neovim/nvim-lspconfig')
