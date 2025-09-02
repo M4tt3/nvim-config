@@ -1,6 +1,25 @@
-Before everything install packer by:
+# Dependencies
 
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+First of all install `lua5.1` and [`luarocks`](https://luarocks.org/) for `lazy.nvim` to work:
+
+    sudo apt install lua5.1 liblua5.1-dev
+    wget https://luarocks.org/releases/luarocks-3.12.2.tar.gz
+    tar zxpf luarocks-3.12.2.tar.gz
+    cd luarocks-3.12.2
+    ./configure && make && sudo make install
+    sudo luarocks install luasocket
+
+Check that everything worked fine:
+    
+    lua
+    Lua 5.1.5  Copyright (C) 1994-2012 Lua.org, PUC-Rio
+    > require "socket"
+
+Then install dependencies for `clangd`:
+    
+    sudo apt install clang libstdc++-12-dev libstdc++-11-dev
+
+*NOTE*: Look for all the versions of gcc in `/usr/bin/` and install approprate 'libstdc` library.
 
 To make telescope work install:
 
@@ -14,11 +33,3 @@ This will automatically install 0xProto font:
     unzip 0xProto.zip
     rm 0xProto.zip LICENSE README.md
 
-Then run nvim an use:
-
-    :PackerSync
-
-Install lsps with `:Mason`:
-
-1. lua-language-server
-2. clangd 
