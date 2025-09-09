@@ -34,4 +34,19 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 
 vim.keymap.set("n", "<leader>re", "<cmd>registers<cr>")
 
-vim.keymap.set("n", "<leader>co", "<cmd>Copilot panel<cr>")
+-- Remap deletion to go to the * register
+
+vim.keymap.set("n", "d", '"*d', { noremap = true })
+vim.keymap.set("n", "D", '"*D', { noremap = true })
+vim.keymap.set("n", "c", '"*c', { noremap = true })
+vim.keymap.set("n", "C", '"*C', { noremap = true })
+vim.keymap.set("n", "x", '"*x', { noremap = true })
+vim.keymap.set("n", "X", '"*X', { noremap = true })
+
+-- Same in visual mode
+vim.keymap.set("v", "d", '"*d', { noremap = true })
+vim.keymap.set("v", "c", '"*c', { noremap = true })
+vim.keymap.set("v", "x", '"*x', { noremap = true })
+
+-- Visual paste without yanking the replaced text
+vim.keymap.set("x", "p", '"*dP', { noremap = true })
