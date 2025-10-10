@@ -65,6 +65,12 @@ return {
         require("ufo").setup({
             fold_virt_text_handler = handler,
             open_fold_hl_timeout = 400,
+            provider_selector = function(_, filetype, _)
+                if filetype == 'cpp' or filetype == 'c' or filetype == 'h' then
+                    return { 'treesitter', 'indent' }
+                end
+                return { 'lsp', 'indent' }
+            end,
             preview = {
                 win_config = {
                     border = { "", "─", "", "", "", "─", "", "" },

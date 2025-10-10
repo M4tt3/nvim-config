@@ -33,7 +33,7 @@ return {
                         capabilities = vim.tbl_extend("force", lsp_capabilities, {
                             offsetEncoding = { "utf-16" },
                         }),
-                        cmd = { "clangd", "--background-index", "--clang-tidy", "-std=c++98", "-I/usr/include/c++/11", "-I/usr/include/x86_64-linux-gnu/c++/11" }, 
+                        cmd = { "clangd", "--background-index", "--clang-tidy"},
                     })
                 end,
                 default_setup,
