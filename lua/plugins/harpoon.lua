@@ -37,15 +37,10 @@ return {
         -- basic telescope configuration
         local conf = require("telescope.config").values
         local function toggle_telescope(harpoon_files)
-            local file_paths = {}
-            for _, item in ipairs(harpoon_files.items) do
-                table.insert(file_paths, item.value)
-            end
-
             local finder = function()
                 local paths = {}
-                for _, item in ipairs(harpoon_files.items) do
-                    table.insert(paths, item.value)
+                for idx, item in ipairs(harpoon_files.items) do
+                    table.insert(paths, idx .. " - " .. item.value)
                 end
 
                 return require("telescope.finders").new_table({
@@ -66,6 +61,12 @@ return {
 
                         table.remove(harpoon_files.items, selected_entry.index)
                         current_picker:refresh(finder())
+                    end)
+                    map({"i", "n"}, "<CR>", function()
+                        local state = require("telescope.actions.state")
+                        local selected_entry = state.get_selected_entry()
+                        require("telescope.actions").close(prompt_bufnr)
+                        harpoon:list():select(selected_entry.index)
                     end)
                     return true
                 end,
