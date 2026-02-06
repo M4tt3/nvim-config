@@ -50,3 +50,4 @@ vim.keymap.set("v", "x", '"*x', { noremap = true })
 
 -- Visual paste without yanking the replaced text
 vim.keymap.set("x", "p", '"*dP', { noremap = true })
+
