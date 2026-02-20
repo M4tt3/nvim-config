@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 vim.opt.wrap = false
 
 -- Tabs options
-vim.opt.expandtab = true     -- Use spaces 
+vim.opt.expandtab = true     -- Use spaces
 vim.opt.tabstop = 4          -- Display width of a tab
 vim.opt.shiftwidth = 4       -- Indent width
 vim.opt.softtabstop = 4      -- Spaces per Tab in insert mode
@@ -16,3 +16,4 @@ vim.opt.clipboard = 'unnamedplus'
 
 vim.opt.scrolloff = 8
 vim.opt.colorcolumn = "80"
+

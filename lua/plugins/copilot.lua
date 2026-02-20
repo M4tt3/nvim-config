@@ -1,30 +1,44 @@
--- return {
---     'Exafunction/windsurf.vim',
---     event = 'BufEnter',
---     config = function()
---         vim.g.codeium_disable_bindings = 1
---
---         vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
---         vim.keymap.set('i', '<C-f>', function() return vim.fn['codeium#AcceptNextWord']() end, { expr = true, silent = true })
---         vim.keymap.set('i', '<C-l>', function() return vim.fn['codeium#AcceptNextLine']() end, { expr = true, silent = true })
---     end
--- }
-
-local function SuggestOneWord()
-    local suggestion = vim.fn['copilot#Accept']("")
-    local bar = vim.fn['copilot#TextQueuedForInsertion']()
-    return vim.fn.split(bar,  [[[ .]\zs]])[1]
-end
-
 return {
-    'github/copilot.vim',
+    "zbirenbaum/copilot.lua",
+    -- dependencies = {
+    --     "copilotlsp-nvim/copilot-lsp",
+    --     config = function()
+    --         vim.g.copilot_nes_debounce = 500
+    --         vim.lsp.enable("copilot_ls")
+    --     end,
+    -- },
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-        vim.g.copilot_no_tab_map = true
-
-        vim.keymap.set('i', '<C-g>', vim.fn['copilot#Accept'], { expr = true, silent = true, noremap = true, replace_keycodes = false})
-        vim.keymap.set('i', '<C-f>', SuggestOneWord, {expr = true, remap = false})
-    end
+        require("copilot").setup({
+            panel = {
+                enabled = false
+            },
+            suggestion = {
+                enabled = true,
+                auto_trigger = true,
+                hide_during_completion = false,
+                debounce = 15,
+                trigger_on_accept = true,
+                keymap = {
+                    accept = "<C-g>",
+                    accept_word = "<C-f>",
+                    accept_line = false,
+                    next = "<M-]>",
+                    prev = "<M-[>",
+                    dismiss = "<C-]>",
+                    toggle_auto_trigger = false,
+                },
+            },
+            -- nes = {
+            --     enabled = true,
+            --     auto_trigger = true,
+            --     keymap = {
+            --         accept_and_goto = "<C-g>",
+            --         accept = false,
+            --         dismiss = "<Esc>",
+            --     },
+            -- },
+        })
+    end,
 }
-
-
-
