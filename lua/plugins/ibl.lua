@@ -1,11 +1,10 @@
-return {}
--- return {
---     "lukas-reineke/indent-blankline.nvim",
---     main = "ibl",
---     ---@module "ibl"
---     opts = {
---         scope = {
---             enabled = false,
---         },
---     }
--- }
+return {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    opts = {
+        scope = {
+            enabled = false,
+        },
+    }
+}
