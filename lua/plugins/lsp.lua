@@ -1,14 +1,14 @@
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim', 
-        'hrsh7th/cmp-nvim-lsp',
-        'hrsh7th/cmp-buffer',
-        'hrsh7th/cmp-path',
-        'hrsh7th/cmp-cmdline',
-        'hrsh7th/nvim-cmp',
-        'j-hui/fidget.nvim'
+        'williamboman/mason.nvim',            -- Manage external LSP/DAP/formatter/linter binaries
+        'williamboman/mason-lspconfig.nvim',  -- Bridge mason.nvim and lspconfig; ensure/auto-install LSP servers
+        'hrsh7th/cmp-nvim-lsp',               -- nvim-cmp source for LSP completion + capabilities integration
+        'hrsh7th/cmp-buffer',                -- nvim-cmp source for buffer words
+        'hrsh7th/cmp-path',                  -- nvim-cmp source for filesystem paths
+        'hrsh7th/cmp-cmdline',               -- nvim-cmp source for command-line (:) and search (/)
+        'hrsh7th/nvim-cmp',                  -- Completion engine core
+        'j-hui/fidget.nvim'                  -- LSP progress/notifications UI
     },
     config = function()
         -- ------------------------------ MASON SETUP ------------------------------
