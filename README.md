@@ -33,3 +33,7 @@ This will automatically install 0xProto font:
     unzip 0xProto.zip
     rm 0xProto.zip LICENSE README.md
 
+Install [opencode](https://opencode.ai/):
+
+    curl -fsSL https://opencode.ai/install | bash
+
