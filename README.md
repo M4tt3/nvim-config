@@ -9,6 +9,11 @@ First of all install `lua5.1` and [`luarocks`](https://luarocks.org/) for `lazy.
     ./configure && make && sudo make install
     sudo luarocks install luasocket
 
+Then install dependencies for treesitter:
+
+    sudo apt install curl tar npm
+    npm install tree-sitter-cli
+
 Check that everything worked fine:
     
     lua
