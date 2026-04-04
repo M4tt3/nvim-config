@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") --Move lines up and down with K and J
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -32,7 +32,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
-vim.keymap.set("n", "<leader>re", "<cmd>registers<cr>")
+-- vim.keymap.set("n", "<leader>re", "<cmd>registers<cr>")
 
 -- Remap deletion to go to the * register
 

@@ -1,32 +1,3 @@
-function extract_filenames(items)
-    local out = {}
-    for i, v in ipairs(items) do
-        out[i] = v.value
-    end
-    return out
-end
-
-function reduce_path(f, max_length)
-    local components = {}
-    for component in f:gmatch("([^/\\]+)") do
-        table.insert(components, component)
-    end
-
-    local current_path = components[#components]
-    local path_length = #current_path
-
-    for i = #components - 1, 1, -1 do
-        if path_length + 3 + #components[i] > max_length then
-            current_path = "..." .. "/" .. current_path
-        else
-            current_path = components[i] .. "/" .. current_path
-            path_length = path_length + #components[i] + 1
-        end
-    end
-
-    return current_path
-end
-
 return {
     "theprimeagen/harpoon",
     branch="harpoon2",
@@ -34,47 +5,7 @@ return {
         local harpoon = require("harpoon")
         harpoon:setup()
 
-        -- basic telescope configuration
-        local conf = require("telescope.config").values
-        local function toggle_telescope(harpoon_files)
-            local finder = function()
-                local paths = {}
-                for idx, item in ipairs(harpoon_files.items) do
-                    table.insert(paths, idx .. " - " .. item.value)
-                end
-
-                return require("telescope.finders").new_table({
-                    results = paths,
-                })
-            end
-
-            require("telescope.pickers").new({}, {
-                prompt_title = "Harpoon",
-                finder = finder(),
-                previewer = conf.file_previewer({}),
-                sorter = conf.generic_sorter({}),
-                attach_mappings = function(prompt_bufnr, map)
-                    map("i", "<C-d>", function()
-                        local state = require("telescope.actions.state")
-                        local selected_entry = state.get_selected_entry()
-                        local current_picker = state.get_current_picker(prompt_bufnr)
-
-                        table.remove(harpoon_files.items, selected_entry.index)
-                        current_picker:refresh(finder())
-                    end)
-                    map({"i", "n"}, "<CR>", function()
-                        local state = require("telescope.actions.state")
-                        local selected_entry = state.get_selected_entry()
-                        require("telescope.actions").close(prompt_bufnr)
-                        harpoon:list():select(selected_entry.index)
-                    end)
-                    return true
-                end,
-            }):find()
-        end
-
         vim.keymap.set("n", "<C-a>", function() harpoon:list():add() end)
-        vim.keymap.set("n", "<leader>ph", function() toggle_telescope(harpoon:list()) end)
         vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end)
         vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end)
         vim.keymap.set("n", "<leader>h3", function() harpoon:list():select(3) end)
